@@ -1,0 +1,175 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,900&display=swap');
+body{
+    
+}
+.padding
+{
+    padding: 26px;
+}
+.app{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all ease 1s;
+
+    
+}
+.widget{
+    display: flex;
+    flex-direction: row;
+    background: #232931;
+    border-radius: 12%;
+
+}
+.forecast-ico2{
+    width: 50%;
+    height: 50%
+}
+.left-side{
+   background: linear-gradient( 135deg, #5cc5c9 10%, #5151E5 100%);
+   display: flex;
+   flex-direction: column;
+   border-radius: 12%;
+   width: 230px;
+   justify-content: space-between;
+   transition: ease 0.4s;
+
+}
+.left-side:hover{
+    transform: scale(1.1);
+}
+
+.right-side{
+    background: #232931;
+    width: 290px;
+    border-radius: 12%;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.main-info{
+    display: flex;
+    flex-direction: column;
+}
+.day{
+    font-size: 24px;
+}
+.location{
+    margin: 10px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 7px;
+}
+.actual-weather-info{
+    display: flex;
+    flex-direction: column;
+}
+.temperature{
+    font-size: 38px;
+    font-weight: bold;
+}
+.condition{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.details{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: bold
+}
+.detail-value{
+    font-weight: 400;
+}
+.change-loc-bnt{
+    display: flex;
+    justify-content: center;
+}
+.button{
+    background: linear-gradient( 135deg, #5cc5c9 10%, #5151E5 100%);
+    border: none;
+    color: aliceblue;
+    padding: 8px;
+    font-weight: bold;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.search-container{
+    display: flex;
+    flex: 10px;
+    flex-direction: row;
+    gap: 40px;
+    padding: 50px;
+}
+
+.forecast-container{
+    display:flex;
+    flex-direction: row;
+    background: #1d232b;
+    border-radius: 10px;
+
+}
+.forecast-info{
+    display: flex;
+    flex-direction: column;
+    padding: 13px;
+    cursor:default;
+    width: 100%;
+    border-radius: 10px;
+    justify-content: center;
+    text-align: center;
+    gap: 8px;
+    transition: ease 0.3s;
+
+
+}
+.forecast-info:hover{
+    background: aliceblue;
+    border-radius: 10px;
+    transform: scale(1.07);
+    color: #1d232b;
+
+}
+.weather-ico{
+    font-size: 62px;
+    margin: 10px 0;
+}
+.forecast-ico{
+    width: 100%;
+    height: 100%;
+}
+.search-bar{
+    position: relative;
+
+}
+.search-label{
+    position: absolute;
+    color: #1d232b;
+    top: 6px;
+    left: 6px;
+    cursor: text;
+    transition: all 0.4s ease;
+}
+.serach-input{
+    border: none;
+    padding: 8px;
+    border-radius: 11px;
+    outline: none;
+}
+
+.serach-input:focus ~ .search-label,
+.serach-input:valid ~ .search-label
+{
+    top: -20px;
+    color: aliceblue;
+}
