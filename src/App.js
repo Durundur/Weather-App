@@ -122,15 +122,13 @@ class App extends React.Component{
   render(){
     return(
       <div className='app'>
-        {/* <form> */}
         <form className='search-container'>
         <div className='search-bar'>
-            <input type='text' name='location' className='serach-input' autoComplete='off' required></input>
+            <input type='text' id='location' className='serach-input' autoComplete='off' required></input>
             <label htmlFor='location' className='search-label'>Location</label>
         </div>
         <input className='button' type='submit' value='Check' onClick={this.handleSubmit}></input> 
         </form>
-      {/* </form> */}
       {this.state.state && <Widget data={this.state.weather} />}
       </div>
     )
