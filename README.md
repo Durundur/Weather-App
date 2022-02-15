@@ -1,2 +1,2 @@
-First my project in react
+First project in react
 https://durundur.github.io/weather-app/
