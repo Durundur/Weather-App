@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { createRef } from 'react'
 import  ReactDOM  from 'react-dom'
 import './App.css';
 import {FiMapPin} from "react-icons/fi";
@@ -93,21 +93,22 @@ class App extends React.Component{
     super(props)
     this.state = {state: false}
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.location = createRef()
   }
   handleSubmit(e){
     e.preventDefault()
-    const searchBar = document.querySelector('.search-container input')
-    if (searchBar.value)
+    let locationName = this.location.current.value
+    if (locationName)
     {
-      fetch(`https://api.weatherapi.com/v1/forecast.json?key=ce0cc07bc3364d08963134335211010&q=${searchBar.value}&days=6&aqi=yes&alerts=no`)
+      fetch(`https://api.weatherapi.com/v1/forecast.json?key=ce0cc07bc3364d08963134335211010&q=${locationName}&days=6&aqi=yes&alerts=no`)
       .then((res)=>{
         res.json().then((data)=>{
           if(!res.ok)
           {
             return Promise.reject();
           }
-          this.setState({state: true,weather: {data}})
-          searchBar.value = ''
+          this.setState({state: true, weather: {data}})
+          this.location.current.value = ''
         })
       })
       .catch(error => {
@@ -124,7 +125,7 @@ class App extends React.Component{
       <div className='app'>
         <form className='search-container'>
         <div className='search-bar'>
-            <input type='text' id='location' className='serach-input' autoComplete='off' required></input>
+            <input type='text' id='location' className='serach-input' autoComplete='off' ref={this.location} required></input>
             <label htmlFor='location' className='search-label'>Location</label>
         </div>
         <input className='button' type='submit' value='Check' onClick={this.handleSubmit}></input> 
