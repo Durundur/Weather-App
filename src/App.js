@@ -95,29 +95,24 @@ class App extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this)
     this.location = createRef()
   }
-  handleSubmit(e){
+  async handleSubmit(e){
     e.preventDefault()
     let locationName = this.location.current.value
     if (locationName)
     {
-      fetch(`https://api.weatherapi.com/v1/forecast.json?key=ce0cc07bc3364d08963134335211010&q=${locationName}&days=6&aqi=yes&alerts=no`)
-      .then((res)=>{
-        res.json().then((data)=>{
-          if(!res.ok)
-          {
-            return Promise.reject();
-          }
-          this.setState({state: true, weather: {data}})
-          this.location.current.value = ''
-        })
-      })
-      .catch(error => {
-        console.error('There was an error!', error.statusText);
-        
-     });
+      try{
+        let res = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=ce0cc07bc3364d08963134335211010&q=${locationName}&days=6&aqi=yes&alerts=no`)
+        let data = await res.json()
+        if (!res.ok) {
+          return Promise.reject();
+        }
+        this.setState({ state: true, weather: { data } })
+        this.location.current.value = ''
+      }
+      catch(err){
+        console.log(err)
+      }
     }
-    
-      
   }
 
   render(){
